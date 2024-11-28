@@ -41,7 +41,7 @@
                     </div>
                   </div>
             </div>
-            
+        </div>
 
             </div>
             <div class="container-table">
@@ -161,9 +161,9 @@
         .attr("y1", (d) => d.source.y)
         .attr("x2", (d) => d.target.x)
         .attr("y2", (d) => d.target.y)
-        .attr("stroke", "#66bb6a") // Verde claro
-        .attr("stroke-width", 2.5) // Más grueso
-        .attr("stroke-dasharray", "3,3"); // Líneas más juntas
+        .attr("stroke", "#4fc3f7") // Azul claro
+        .attr("stroke-width", 2)
+        .attr("stroke-dasharray", "6,4"); // Líneas más largas
 
     // Draw nodes
     const nodes = g
@@ -176,11 +176,11 @@
 
     // Circle style
     nodes.append("circle")
-        .attr("r", 25)
-        .attr("fill", "url(#nodeGradient)") // Gradiente
-        .attr("stroke", "#004d40") // Verde oscuro
-        .attr("stroke-width", 3)
-        .style("filter", "drop-shadow(5px 5px 8px rgba(0,0,0,0.4))"); // Sombra más marcada
+        .attr("r", 22)
+        .attr("fill", "url(#nodeGradient)") // Gradiente actualizado
+        .attr("stroke", "#0277bd") // Azul oscuro
+        .attr("stroke-width", 2.5)
+        .style("filter", "drop-shadow(3px 3px 6px rgba(0,0,0,0.3))"); // Sombra más sutil
 
     // Define radial gradient for the nodes
     svg.append("defs")
@@ -188,8 +188,8 @@
         .attr("id", "nodeGradient")
         .selectAll("stop")
         .data([
-            { offset: "0%", color: "#8e44ad" }, // Color inicial (morado claro)
-            { offset: "100%", color: "#5e3370" } // Color final (morado oscuro)
+            { offset: "0%", color: "#81d4fa" }, // Azul claro
+            { offset: "100%", color: "#0288d1" } // Azul más oscuro
         ])
         .enter()
         .append("stop")
@@ -201,10 +201,10 @@
         .attr("dy", 5)
         .attr("x", 0)
         .attr("text-anchor", "middle")
-        .attr("fill", "#ffffff") // Texto blanco
-        .style("font-size", "16px")
+        .attr("fill", "#e1f5fe") // Azul muy claro
+        .style("font-size", "18px") // Fuente un poco más grande
         .style("font-weight", "bold")
-        .style("text-shadow", "2px 2px 4px rgba(0,0,0,0.6)") // Sombra para mejor visibilidad
+        .style("text-shadow", "1px 1px 3px rgba(0,0,0,0.5)") // Sombra más ligera
         .text((d) => d.data.name);
 }
 
